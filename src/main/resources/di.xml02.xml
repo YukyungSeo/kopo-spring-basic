@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+							http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="tire" class="di.xml02.HankookTire" />
+	<bean id="car" class="di.xml02.Car">
+		<constructor-arg ref="tire" />
+	</bean>
+
+	<bean id="car2" class="di.xml02.Car">
+		<constructor-arg ref="tire" index="0" />
+		<constructor-arg value="메세지입니다." index="1" />
+	</bean>
+
+	<bean id="car3" class="di.xml02.Car">
+		<constructor-arg value="3796" index="0" />
+		<constructor-arg value="서*호님의 자동차입니다." index="1" />
+	</bean>
+
+	<bean id="car4" class="di.xml02.Car">
+		<constructor-arg>
+			<list>
+				<value>aaaa</value>
+				<value>bbbb</value>
+				<value>cccc</value>
+				<value>dddd</value>
+				<value>eeee</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="car5" class="di.xml02.Car">
+		<property name="tire" ref="tire"></property>
+		<property name="msg" value="하하하"></property>
+		<property name="num" value="3796"></property>
+		<property name="list">
+			<list>
+				<value>aaaa</value>
+				<value>bbbb</value>
+				<value>cccc</value>
+				<value>dddd</value>
+				<value>eeee</value>
+			</list>
+		</property>
+	</bean>
+</beans>

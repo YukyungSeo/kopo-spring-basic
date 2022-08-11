@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+							http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="samsung" class="di.homework01.SamsungCalculator" />
+	<bean id="lg" class="di.homework01.LGCalculator" />
+
+	<bean id="myCalculator1" class="di.homework01.MyCalculator">
+		<constructor-arg value="3.5" index="0"></constructor-arg>
+		<constructor-arg value="0.5" index="1"></constructor-arg>
+		<constructor-arg ref="samsung" index="2"></constructor-arg>
+	</bean>
+	
+	<bean id="myCalculator2" class="di.homework01.MyCalculator">
+		<property name="firstNum" value="3.5"></property>
+		<property name="secondNum" value="0.5"></property>
+		<property name="calculator" ref="lg"></property>
+	</bean>
+</beans>
